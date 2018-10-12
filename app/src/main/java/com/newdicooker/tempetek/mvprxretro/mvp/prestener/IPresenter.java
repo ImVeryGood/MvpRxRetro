@@ -28,6 +28,11 @@ public class IPresenter extends BasePresenter<IView> {
             public void call(MovieBean movieBean) {
                 getView().showView(movieBean);
             }
+        }, new Action1<Throwable>() {
+            @Override
+            public void call(Throwable throwable) {
+                getView().ShowError(throwable);
+            }
         });
     }
 }

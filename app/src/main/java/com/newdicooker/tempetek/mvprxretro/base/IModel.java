@@ -10,5 +10,5 @@ import rx.functions.Action1;
  */
 
 public interface IModel<T> extends MvpModel {
-    void loadData(Action1<T> action1);
+    void loadData(Action1<T> action1, Action1<Throwable> throwableAction1);
 }

@@ -12,4 +12,5 @@ import com.newdicooker.tempetek.mvprxretro.bean.MovieBean;
 
 public interface IView extends MvpView {
     void showView(MovieBean movieBean);
+    void ShowError(Throwable throwable);
 }

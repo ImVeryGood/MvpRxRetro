@@ -14,8 +14,18 @@ import rx.functions.Action1;
  */
 
 public class MainModel implements IModel<MovieBean> {
+//    @Override
+//    public void loadData(Action1<MovieBean> action1) {
+//        new DataLoader().getMovies(0, 20).subscribe(action1, new Action1<Throwable>() {
+//            @Override
+//            public void call(Throwable throwable) {
+//
+//            }
+//        });
+//    }
+
     @Override
-    public void loadData(Action1<MovieBean> action1) {
-        new DataLoader().getMovies(0, 20).subscribe(action1);
+    public void loadData(Action1<MovieBean> action1, Action1<Throwable> throwableAction1) {
+        new DataLoader().getMovies(0,20).subscribe(action1,throwableAction1);
     }
 }

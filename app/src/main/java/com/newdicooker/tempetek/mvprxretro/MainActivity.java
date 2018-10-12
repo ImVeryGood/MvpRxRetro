@@ -1,8 +1,10 @@
 package com.newdicooker.tempetek.mvprxretro;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.newdicooker.tempetek.mvprxretro.base.BaseActivity;
 import com.newdicooker.tempetek.mvprxretro.bean.MovieBean;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity<IView, IPresenter> implements IView {
 
@@ -44,5 +47,16 @@ public class MainActivity extends BaseActivity<IView, IPresenter> implements IVi
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void ShowError(Throwable throwable) {
+        Toast.makeText(this, throwable.toString(), Toast.LENGTH_SHORT).show();
+        Log.d("SSSSSSSSSSS", "ShowError: " + throwable.toString());
+    }
+
+    @OnClick(R.id.rep)
+    public void onViewClicked() {
+        prestener.load();
     }
 }
