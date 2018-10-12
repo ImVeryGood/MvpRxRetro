@@ -6,6 +6,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+
+import com.android.tu.loadingdialog.LoadingDailog;
 import com.newdicooker.tempetek.mvprxretro.base.BaseActivity;
 import com.newdicooker.tempetek.mvprxretro.bean.MovieBean;
 import com.newdicooker.tempetek.mvprxretro.mvp.prestener.IPresenter;
@@ -23,6 +25,7 @@ public class MainActivity extends BaseActivity<IView, IPresenter> implements IVi
     @BindView(R.id.list_view)
     ListView listView;
     private List<String> list;
+    private LoadingDailog mLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,5 +61,22 @@ public class MainActivity extends BaseActivity<IView, IPresenter> implements IVi
     @OnClick(R.id.rep)
     public void onViewClicked() {
         prestener.load();
+    }
+
+    @Override
+    public void showLoading() {
+        mLoading.show();
+    }
+
+    @Override
+    public void dimssLoading() {
+        mLoading.dismiss();
+
+    }
+
+    @Override
+    protected void setLoading() {
+        super.setLoading();
+        mLoading = loadingDailog;
     }
 }

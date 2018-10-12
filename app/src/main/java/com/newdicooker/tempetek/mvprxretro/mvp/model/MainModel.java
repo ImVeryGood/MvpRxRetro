@@ -4,6 +4,7 @@ import com.newdicooker.tempetek.mvprxretro.base.IModel;
 import com.newdicooker.tempetek.mvprxretro.bean.MovieBean;
 import com.newdicooker.tempetek.mvprxretro.utils.net.retrofitUtils.DataLoader;
 
+import rx.functions.Action0;
 import rx.functions.Action1;
 
 /**
@@ -24,8 +25,9 @@ public class MainModel implements IModel<MovieBean> {
 //        });
 //    }
 
+
     @Override
-    public void loadData(Action1<MovieBean> action1, Action1<Throwable> throwableAction1) {
-        new DataLoader().getMovies(0,20).subscribe(action1,throwableAction1);
+    public void loadData(Action1<MovieBean> action1, Action1<Throwable> throwableAction1, Action0 action0) {
+        new DataLoader().getMovies(0,20).subscribe(action1,throwableAction1,action0);
     }
 }

@@ -8,4 +8,7 @@ package com.newdicooker.tempetek.mvprxretro.base;
  */
 
 public interface MvpView {
+    void showLoading();
+
+    void dimssLoading();
 }

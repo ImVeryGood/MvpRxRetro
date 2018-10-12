@@ -6,6 +6,7 @@ import com.newdicooker.tempetek.mvprxretro.bean.MovieBean;
 import com.newdicooker.tempetek.mvprxretro.mvp.model.MainModel;
 import com.newdicooker.tempetek.mvprxretro.mvp.view.IView;
 
+import rx.functions.Action0;
 import rx.functions.Action1;
 
 /**
@@ -27,11 +28,19 @@ public class IPresenter extends BasePresenter<IView> {
             @Override
             public void call(MovieBean movieBean) {
                 getView().showView(movieBean);
+                getView().showLoading();
+
             }
         }, new Action1<Throwable>() {
             @Override
             public void call(Throwable throwable) {
                 getView().ShowError(throwable);
+            }
+        }, new Action0() {
+            @Override
+            public void call() {
+                getView().dimssLoading();
+
             }
         });
     }

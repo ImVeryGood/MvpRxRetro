@@ -1,5 +1,6 @@
 package com.newdicooker.tempetek.mvprxretro.base;
 
+import rx.functions.Action0;
 import rx.functions.Action1;
 
 /**
@@ -10,5 +11,5 @@ import rx.functions.Action1;
  */
 
 public interface IModel<T> extends MvpModel {
-    void loadData(Action1<T> action1, Action1<Throwable> throwableAction1);
+    void loadData(Action1<T> action1, Action1<Throwable> throwableAction1, Action0 action0);
 }
